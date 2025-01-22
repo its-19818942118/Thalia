@@ -19,7 +19,7 @@ namespace Thalia
             
             std::string_view args = argv [ i ];
             
-            if ( args == "--compile" || args == "-c" )
+            if ( args == "--compile" )
             {
                 
                 Thalia::compileBuilder ( );
@@ -27,21 +27,21 @@ namespace Thalia
                 
             }
             
-            else if ( args == "--build==release" || args == "-b" )
+            else if ( args == "--build==release" )
             {
                 
                 Thalia::buildRelease ( );
                 
             }
             
-            else if ( args == "--build==clean" || args == "-b" || args == "-cb" )
+            else if ( args == "--build==clean" )
             {
                 
                 Thalia::cleanBuild ( );
                 
             }
             
-            else if ( args == "--build==cleanCompile" || args == "-ccb" )
+            else if ( args == "--build==cleanCompile"  )
             {
                 
                 Thalia::cleanBuild ( );
