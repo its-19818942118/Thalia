@@ -64,7 +64,7 @@ namespace Thalia
             
             R"(
                 g++ -std=c++23 -march=native -mtune=native -o3 -oz -ofast -DNDEBUG \
-                build.cpp \
+                build.cpp -static \
                 -o builder \
             )"
             
@@ -96,7 +96,7 @@ namespace Thalia
                 -fstrict-aliasing -fomit-frame-pointer -march=native -mtune=native -oz -ofast \
                 -fno-exceptions -fno-rtti -fdata-sections -ffunction-sections -Wl,--gc-sections \
                 -g include/functions/donut.cpp include/functions/kbInput.cpp -DNDEBUG \
-                -I ./include src/main.cpp \
+                -I ./include src/main.cpp -static \
                 -o build/bin/Thalia \
             )"
             
@@ -143,8 +143,8 @@ namespace Thalia
             <<  "\n"
         ;
         
-        system ("mkdir -p build/bin" );
-        system ("mkdir -p build/objects" );
+        system ( "mkdir -p build/bin" );
+        system ( "mkdir -p build/objects" );
         
         Thalia::buildRelease ( );
         
@@ -160,6 +160,10 @@ int main ( _attribute_maybe_unused_ int argc , _attribute_maybe_unused_ char * a
     // system ( cmdBuild );
     
     // Thalia::compileBuilder ( );
+    
+    std::cout
+        <<  "Thalis Version 0.0.10"
+    ;
     
     Thalia::builderArguments ( argc , argv );
     
